@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Animal:
     def __init__(
         self,
@@ -24,7 +25,8 @@ class Animal:
             return 0
 
     def __str__(self) -> str:
-        return f"{self.__class__.__name__}('{self.name}', Hungry: {self.is_hungry})"
+        return (f"{self.__class__.__name__}('{self.name}', "
+                f"Hungry: {self.is_hungry})")
 
 
 class Cat(Animal):
