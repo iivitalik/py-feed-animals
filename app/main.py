@@ -20,9 +20,9 @@ class Animal:
             print(f"{self.name} is eating {self.appetite} food points...")
             self.is_hungry = False
             return self.appetite
-        else:
-            print(f"{self.name} is not hungry.")
-            return 0
+
+        print(f"{self.name} is not hungry.")
+        return 0
 
     def __str__(self) -> str:
         return (f"{self.__class__.__name__}('{self.name}', "
@@ -53,7 +53,6 @@ def feed_animals(animals: List[Animal]) -> int:
 
 
 if __name__ == "__main__":
-    # Пример использования
     cat1 = Cat("Whiskers")
     dog1 = Dog("Buddy")
     cat2 = Cat("Luna", is_hungry=False)
