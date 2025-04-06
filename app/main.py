@@ -1,3 +1,5 @@
+from typing import List
+
 class Animal:
     def __init__(
         self,
@@ -18,7 +20,11 @@ class Animal:
             self.is_hungry = False
             return self.appetite
         else:
+            print(f"{self.name} is not hungry.")
             return 0
+
+    def __str__(self) -> str:
+        return f"{self.__class__.__name__}('{self.name}', Hungry: {self.is_hungry})"
 
 
 class Cat(Animal):
@@ -37,8 +43,29 @@ class Dog(Animal):
         print(f"{self.name} says: The slippers delivered!")
 
 
-def feed_animals(animals: list[Animal]) -> int:
+def feed_animals(animals: List[Animal]) -> int:
     sum_food_points = 0
     for animal in animals:
         sum_food_points += animal.feed()
     return sum_food_points
+
+
+if __name__ == "__main__":
+    # Пример использования
+    cat1 = Cat("Whiskers")
+    dog1 = Dog("Buddy")
+    cat2 = Cat("Luna", is_hungry=False)
+    dog2 = Dog("Max")
+
+    animals = [cat1, dog1, cat2, dog2]
+
+    for animal in animals:
+        animal.print_name()
+
+    print("\n--- Feeding animals ---")
+    total_food = feed_animals(animals)
+    print(f"\nTotal food consumed: {total_food} food points")
+
+    print("\n--- Animal actions ---")
+    cat1.catch_mouse()
+    dog1.bring_slippers()
